@@ -3,8 +3,9 @@ defmodule TirTairngire.Accounts.User do
   import Ecto.Changeset
   alias TirTairngire.Accounts.User
 
-  @primary_key {:id, :uuid, []}
-  @foreign_key_type :uuid
+
+  @primary_key {:id, :binary_id, autogenerate: true}
+  @foreign_key_type :binary_id
   @timestamps_opts [type: Timex.Ecto.DateTime,
                   autogenerate: {Timex.Ecto.DateTime, :autogenerate, [:usec]}]
   schema "users" do

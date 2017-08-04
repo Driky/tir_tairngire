@@ -7,7 +7,8 @@ use Mix.Config
 
 # General application configuration
 config :tir_tairngire,
-  ecto_repos: [TirTairngire.Repo]
+  ecto_repos: [TirTairngire.Repo],
+  generators: [binary_id: true]
 
 # Configures the endpoint
 config :tir_tairngire, TirTairngireWeb.Endpoint,
