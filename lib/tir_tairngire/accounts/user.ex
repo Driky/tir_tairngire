@@ -6,14 +6,16 @@ defmodule TirTairngire.Accounts.User do
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
-  @timestamps_opts [type: Timex.Ecto.DateTime,
-                  autogenerate: {Timex.Ecto.DateTime, :autogenerate, [:usec]}]
+  @required_fields ~w(email username password)a
+  # @optional_fields ~w(bio image)a
+  # @timestamps_opts [type: Timex.Ecto.DateTimeWithTimezone,
+  #                 autogenerate: {Timex.Ecto.DateTimeWithTimezone, :autogenerate, [:usec]}]
   schema "users" do
     field :email, :string
     field :password, :string
     field :username, :string
-
-    timestamps()
+    field :inserted_at, Timex.Ecto.DateTimeWithTimezone
+    field :updated_at, Timex.Ecto.DateTimeWithTimezone
   end
 
   @doc false

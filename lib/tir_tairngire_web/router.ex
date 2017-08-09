@@ -22,7 +22,7 @@ defmodule TirTairngireWeb.Router do
   # Other scopes may use custom stacks.
   scope "/api", TirTairngireWeb do
     pipe_through :api
-
     resources "/users", UserController, except: [:new, :edit]
+    resources "/articles", ArticleController, except: [:new, :edit]
   end
 end

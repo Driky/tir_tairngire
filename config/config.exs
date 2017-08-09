@@ -23,6 +23,15 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+config :guardian, Guardian,
+  allowed_algos: ["HS256"],
+  issuer: "TirTairngire",
+  ttl: { 30, :days },
+  allowed_drift: 2000,
+  verify_issuer: true, # optional
+  secret_key: "R25Gxdcx1mQ+tIZ+TAke0u2ST0tobO4oYc0BRHrQWg9NMXT9N0cvBjiJNEShpQWt",
+serializer: RealWorld.GuardianSerializer
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

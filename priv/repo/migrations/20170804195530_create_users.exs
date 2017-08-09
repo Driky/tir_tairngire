@@ -7,8 +7,8 @@ defmodule TirTairngire.Repo.Migrations.CreateUsers do
       add :username, :string
       add :password, :string
       add :email, :string
-
-      timestamps()
+      add :inserted_at, :"datetimetz"
+      add :updated_at, :"datetimetz"
     end
 
     create unique_index(:users, [:username])
